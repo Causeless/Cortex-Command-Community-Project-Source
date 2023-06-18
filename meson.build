@@ -161,7 +161,8 @@ luabind_proj = subproject('luabind-0.7.1')
 luabind_dep = dependency('luabind')
 raknet_proj = subproject('RakNet')
 raknet_dep = dependency('RakNet')
-deps += [allegro_dep, loadpng_dep, luabind_dep, raknet_dep]
+tracy_dep = dependency('tracy')
+deps += [allegro_dep, loadpng_dep, luabind_dep, raknet_dep, tracy_dep]
 
 #### Target Definitions ####
 cccpelf = executable(
