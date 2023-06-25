@@ -41,6 +41,8 @@
 #include "NetworkServer.h"
 #include "NetworkClient.h"
 
+#include "tracy/Tracy.hpp"
+
 extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 
 using namespace RTE;
@@ -225,6 +227,7 @@ namespace RTE {
 			g_MenuMan.Draw();
 			g_ConsoleMan.Draw(g_FrameMan.GetBackBuffer32());
 			g_WindowMan.UploadFrame();
+			FrameMark;
 		}
 	}
 
@@ -337,6 +340,7 @@ namespace RTE {
 
 			g_FrameMan.Draw();
 			g_WindowMan.UploadFrame();
+			FrameMark;
 
 			drawTotalTime = g_TimerMan.GetAbsoluteTime() - drawStartTime;
 			g_PerformanceMan.UpdateMSPF(updateTotalTime, drawTotalTime);

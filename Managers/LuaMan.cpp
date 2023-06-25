@@ -1,6 +1,7 @@
 #include "LuaMan.h"
 #include "LuabindObjectWrapper.h"
 #include "LuaBindingRegisterDefinitions.h"
+#include "tracy/TracyLua.hpp"
 
 namespace RTE {
 
@@ -23,7 +24,7 @@ namespace RTE {
 	void LuaMan::Initialize() {
 		m_MasterState = luaL_newstate();
 		luabind::open(m_MasterState);
-
+		tracy::LuaRegister(m_MasterState);
 		const luaL_Reg libsToLoad[] = {
 			{ LUA_COLIBNAME, luaopen_base },
 			{ LUA_LOADLIBNAME, luaopen_package },
