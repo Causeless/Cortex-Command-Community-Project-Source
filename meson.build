@@ -123,6 +123,20 @@ else
   conf_data.set('EXEPATH', prefix/get_option('bindir'))
 endif
 
+if get_option('tracy_enable')
+  preprocessor_flags += ['-DTRACY_ENABLE']
+endif
+if get_option('tracy_callstack')
+  preprocessor_flags += ['-DTRACY_CALLSTACK']
+endif
+if get_option('tracy_on_demand')
+  preprocessor_flags += ['-DTRACY_ON_DEMAND']
+endif
+debuginfod = dependency('libdebuginfod')
+if debuginfod.found()
+  preprocessor_flags += ['-DTRACY_DEBUGINFOD']
+endif
+
 #### Sources Setup ####
 pch = 'System/StandardIncludes.h'
 sources = []
