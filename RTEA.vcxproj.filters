@@ -31,6 +31,9 @@
     <Filter Include="GUI\Wrappers">
       <UniqueIdentifier>{14ff3fdb-4366-4bed-8b6e-ddcf72987b81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{7b2543de-e2bf-4ae4-ad1a-a10016dd8b63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System\Box.h">
@@ -1097,6 +1100,9 @@
     </ClCompile>
     <ClCompile Include="Managers\WindowMan.cpp">
       <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="external\sources\tracy\public\TracyClient.cpp">
+      <Filter>external</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
